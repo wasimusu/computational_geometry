@@ -14,7 +14,7 @@ CF514B: Hans Solor and Lazer Gun \
 CF800B: Volatile Kite \
 CF1036E: Covered Points \
 CF406D: Hill Climbing \
-GEOCHEAT: Bear and Shuffled Points (Codechef)
+GEOCHEAT: Bear and Shuffled Points (Codechef) \
 CF70D: Online Incremental Hull \
 CF319C: Kalila and Dimna in the Logging Industry (Convex Hull) \
 CF67E: Save the city
