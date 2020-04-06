@@ -1,15 +1,17 @@
+// CF800B. Volatile Kite
 
 
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
+#include <numeric>
 using namespace std;
 
-long long cross(const int x1, const int y1, const int x2, const int y2){
+inline long long cross(const int x1, const int y1, const int x2, const int y2){
     return (long long)x1 * y2 - (long long)x2 * y1;
 }
 
-long double distance(const int x1, const int y1, const int x2, const int y2){
+inline long double distance(const int x1, const int y1, const int x2, const int y2){
     return sqrt((long long)(x1 - x2) * (x1 - x2) + (long long)(y1 - y2) * (y1 - y2));
 }
 
@@ -22,7 +24,7 @@ int main(){
         cin >> xx[i] >> yy[i];
 
     int x1, x2, y1, y2;
-    long double min_height = 100000000000000000000.0;
+    long double min_height = numeric_limits<long double>::max();
     for(int i = 0; i < N; i++){
         x1 = xx[(i+1)%N] - xx[i];
         y1 = yy[(i+1)%N] - yy[i];
