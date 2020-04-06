@@ -1,4 +1,4 @@
-// Pair of Lines
+// 961D. Pair of Lines
 
 #include<iostream>
 #include<set>
@@ -6,11 +6,11 @@
 using namespace std;
 
 
-long long cross(long x1, long y1, long x2, long y2){
+inline long long cross(long x1, long y1, long x2, long y2){
     return (long long)x1 * y2 - (long long)y1 * x2;
 }
 
-bool areTwoLines(vector<long> xx, vector<long> yy, int i, int j){
+bool areTwoLines(const vector<long>& xx, const vector<long>& yy, int i, int j) {
     int N = xx.size();
     set<int> used;
     used.insert(i);
@@ -56,16 +56,15 @@ int main(){
     // Read inputs
     int N;
     cin >> N;
+
     if(N <= 3) {
         cout << "YES";
         return 0;
     }
-    vector<long> xx, yy;
-    long x, y;
+
+    vector<long> xx(N), yy(N);
     for(int i = 0; i < N; i++){
-        cin >> x >> y;
-        xx.push_back(x);
-        yy.push_back(y);
+        cin >> xx[i] >> yy[i];
     }
 
     // The three starting points
@@ -73,13 +72,11 @@ int main(){
 
     if (areTwoLines(xx, yy, i, j) == true) {
         cout << "YES";
-        return 0;
     }
-    if (areTwoLines(xx, yy, i, k) == true){
+    else if (areTwoLines(xx, yy, i, k) == true){
         cout << "YES";
-        return 0;
     }
-    if (areTwoLines(xx, yy, j, k) == true){
+    else if (areTwoLines(xx, yy, j, k) == true){
         cout << "YES";
     } else {
         cout << "NO";
