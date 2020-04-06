@@ -1,4 +1,4 @@
-// Number of parallelograms
+//660D. Number of parallelograms
 
 #include <iostream>
 #include <vector>
@@ -7,10 +7,9 @@
 using namespace std;
 
 struct Point {
-    int x, y;
-    bool res;
+    int x = 0, y = 0;
 
-    bool operator<(Point a) {
+    bool operator<(Point& a) const {
         if (a.x != x) {
             if (a.x < x) return true;
             else return false;
@@ -21,16 +20,6 @@ struct Point {
     }
 };
 
-bool compare(Point a, Point b) {
-    if (a.x != b.x) {
-        if (a.x < b.x) return true;
-        else return false;
-    } else {
-        if (a.y < b.y) return true;
-        else return false;
-    }
-}
-
 
 int main() {
     // Read inputs
@@ -38,12 +27,7 @@ int main() {
     cin >> N;
     vector <Point> points(N);
     for (int i = 0; i < N; i++) {
-        int x, y;
-        cin >> x >> y;
-        Point p;
-        points.push_back(p);
-        points[i].x = x;
-        points[i].y = y;
+        cin >> points[i].x >> points[i].y;
     }
 
     // Compute midpoints
@@ -53,12 +37,8 @@ int main() {
     for (int i = 0; i < N; i++) {
         for (int j = i + 1; j < N; j++) {
             // Avoid dividing by 2 to obtain midpoint because that's just waste of time
-            int x = points[i].x + points[j].x;
-            int y = points[i].y + points[j].y;
-            Point p;
-            midpoints.push_back(p);
-            midpoints[k].x = x;
-            midpoints[k].y = y;
+            midpoints[k].x = points[i].x + points[j].x;
+            midpoints[k].y = points[i].y + points[j].y;
             k++;
         }
     }
